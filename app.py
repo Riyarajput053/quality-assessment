@@ -5,9 +5,10 @@ from PIL import Image
 
 import gdown
 
-url = "https://drive.google.com/file/d/1V7Aqjnmy3rgZYVIK9XthP0nTVmIgeHnx/view?usp=sharing"
+file_id = "1V7Aqjnmy3rgZYVIK9XthP0nTVmIgeHnx"  
+url = f"https://drive.google.com/uc?id={file_id}"
 output = "ResNet50.h5"
-gdown.download(url, output, quiet=False)
+gdown.download(url, output, quiet=False, fuzzy=True)
 
 st.markdown(
     """
