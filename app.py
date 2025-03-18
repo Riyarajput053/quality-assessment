@@ -3,6 +3,12 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 
+import gdown
+
+url = "https://drive.google.com/file/d/1V7Aqjnmy3rgZYVIK9XthP0nTVmIgeHnx/view?usp=sharing"
+output = "ResNet50.h5"
+gdown.download(url, output, quiet=False)
+
 st.markdown(
     """
     <style>
