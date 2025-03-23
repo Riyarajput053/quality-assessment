@@ -7,11 +7,11 @@ train_dir = "train"
 test_dir = "test"
 val_dir = "val"
 
-split_ratio_train = 0.7  # 70% Train
-split_ratio_val = 0.15   # 15% Validation
-split_ratio_test = 0.15  # 15% Test
+split_ratio_train = 0.7  
+split_ratio_val = 0.15   
+split_ratio_test = 0.15  
 
-# Function to split data into train, validation, and test sets
+#Function to split data into train, validation, and test sets
 def split_data(class_name):
     class_path = os.path.join(dataset_dir, class_name)
     images = os.listdir(class_path)
@@ -34,8 +34,6 @@ def split_data(class_name):
     for img in test_images:
         shutil.copy(os.path.join(class_path, img), os.path.join(test_dir, class_name, img))
 
-# Apply split
 split_data("fine_grain")
 split_data("damaged_grain")
 
-print("✅ Dataset split completed! (No augmentation applied)")
