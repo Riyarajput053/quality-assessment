@@ -70,23 +70,6 @@ model = keras.Sequential([
     keras.layers.Dense(1, activation='sigmoid')
 ])
 
-# # Define the initial learning rate and decay parameters
-# initial_learning_rate = 0.001
-# decay_steps = 1000  # Adjust based on your dataset size
-# decay_rate = 0.96  # Adjust for the desired decay
-
-# # Create the learning rate schedule
-# lr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(
-#     initial_learning_rate,
-#     decay_steps=decay_steps,
-#     decay_rate=decay_rate,
-#     staircase=True  # Optional: use staircase decay
-# )
-
-# # Use the schedule in the Adam optimizer
-# optimizer = keras.optimizers.Adam(learning_rate=lr_schedule)
-# optimizer = keras.optimizers.Adam(learning_rate=0.00005)  # Reduce to avoid overfitting
-
 
 base_model.trainable = False 
 model.compile(optimizer="adam", loss='binary_crossentropy', metrics=['accuracy'])
@@ -111,7 +94,7 @@ y_pred = (y_pred_probs > 0.5).astype(int)
 # print("First 10 raw predictions:", y_pred_probs[:10].flatten())  
 # print("Predicted classes:", y_pred[:10].flatten())  
 
-# model.save('ResNet.h5')
+model.save('ResNet.h5')
 
 
 # accuracy matrix
